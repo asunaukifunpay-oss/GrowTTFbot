@@ -2,48 +2,87 @@ const {
     Events
 } = require("discord.js");
 
+const roleSets = require("../config/roleSets.json");
+
 module.exports = (client) => {
 
     client.on(Events.InteractionCreate, async (interaction) => {
 
         try {
 
-            // Обработка выбора роли
+            // ==========================
+            // Выбор роли
+            // ==========================
+
             if (interaction.isStringSelectMenu()) {
 
-                if (interaction.customId === "role_select") {
+                if (interaction.customId !== "role_select") return;
 
-                    await interaction.reply({
-                        content: `Вы выбрали: ${interaction.values[0]}`,
+                const roleId = interaction.values[0];
+
+                if (roleId === "none") {
+
+                    return interaction.reply({
+                        content: "❌ Роли пока не настроены.",
                         ephemeral: true
                     });
 
                 }
 
+                const member = interaction.member;
+
+                const role = interaction.guild.roles.cache.get(roleId);
+
+                if (!role) {
+
+                    return interaction.reply({
+                        content: "❌ Роль не найдена.",
+                        ephemeral: true
+                    });
+
+                }
+
+                if (member.roles.cache.has(roleId)) {
+
+                    await member.roles.remove(role);
+
+                    return interaction.reply({
+                        content: `➖ Роль **${role.name}** снята.`,
+                        ephemeral: true
+                    });
+
+                }
+
+                await member.roles.add(role);
+
+                return interaction.reply({
+                    content: `✅ Роль **${role.name}** выдана.`,
+                    ephemeral: true
+                });
+
             }
 
-            // Обработка кнопок
+            // ==========================
+            // Кнопки
+            // ==========================
+
             if (interaction.isButton()) {
 
                 switch (interaction.customId) {
 
                     case "appeal_create":
 
-                        await interaction.reply({
-                            content: "🚧 Система апелляций пока находится в разработке.",
+                        return interaction.reply({
+                            content: "🚧 Система апелляций скоро появится.",
                             ephemeral: true
                         });
-
-                        break;
 
                     case "airdrop_create":
 
-                        await interaction.reply({
-                            content: "💰 Система выплат пока находится в разработке.",
+                        return interaction.reply({
+                            content: "💰 Система выплат скоро появится.",
                             ephemeral: true
                         });
-
-                        break;
 
                 }
 
@@ -66,4 +105,4 @@ module.exports = (client) => {
 
     });
 
-};
+};ы
