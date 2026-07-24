@@ -102,8 +102,13 @@ client.once(Events.ClientReady, async () => {
         // Панель апелляций
         // ==========================
 
-        const appealChannel = guild.channels.cache.get("1526408082278715564");
-      const airdropChannel = guild.channels.cache.get("1526900810565550140");
+        const appealChannel = guild.channels.cache.get(
+    settings.appealChannelId
+);
+
+const airdropChannel = guild.channels.cache.get(
+    settings.airdropChannelId
+);
 
         if (appealChannel) {
 
