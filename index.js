@@ -61,9 +61,9 @@ client.once(Events.ClientReady, async () => {
         // Панель выдачи ролей
         // ==========================
 
-        const panelChannel = guild.channels.cache.find(
-            c => c.name === settings.panelChannelName
-        );
+        const panelChannel = guild.channels.cache.get(
+    settings.panelChannelId
+);a
 
         if (panelChannel) {
 
