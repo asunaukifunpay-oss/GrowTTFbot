@@ -1,5 +1,5 @@
-const express = require("express");
 require("dotenv").config();
+const express = require("express");
 
 const {
     Client,
@@ -26,23 +26,63 @@ const client = new Client({
         Partials.GuildMember
     ]
 });
+
 client.commands = new Map();
+
+// =========================
+// Команды
+// =========================
 
 require("./commands/bal")(client);
 require("./commands/cb")(client);
 
-// ==========================
-// Обработчики событий
-// ==========================
+// =========================
+// События
+// =========================
 
 require("./events/interactionCreate")(client);
 require("./events/messageCreate")(client);
 require("./events/appealInteraction")(client);
 require("./events/airdropInteraction")(client);
 
-// ==========================
-// Запуск
-// ==========================
+// =========================
+// Функция обновления панели
+// =========================
+
+async function updatePanel(channel, title, panel) {
+
+    if (!channel) return;
+
+    const messages = await channel.messages.fetch({
+        limit: 20
+    });
+
+    const oldPanel = messages.find(
+        msg =>
+            msg.author.id === client.user.id &&
+            msg.embeds.length > 0 &&
+            msg.embeds[0].title === title
+    );
+
+    if (oldPanel) {
+
+        await oldPanel.edit(panel);
+
+        console.log(`✅ Панель "${title}" обновлена.`);
+
+    } else {
+
+        await channel.send(panel);
+
+        console.log(`✅ Панель "${title}" создана.`);
+
+    }
+
+}
+
+// =========================
+// Готовность бота
+// =========================
 
 client.once(Events.ClientReady, async () => {
 
@@ -56,159 +96,37 @@ client.once(Events.ClientReady, async () => {
         const guild = await client.guilds.fetch(settings.guildId);
 
         await guild.channels.fetch();
+        await guild.members.fetch();
 
-        // ==========================
-        // Панель выдачи ролей
-        // ==========================
+        const rolePanelChannel =
+            guild.channels.cache.get(settings.panelChannelId);
 
-        const panelChannel = guild.channels.cache.get(
-    settings.panelChannelId
-);
+        const appealPanelChannel =
+            guild.channels.cache.get(settings.appealChannelId);
 
-        if (panelChannel) {
+        const airdropPanelChannel =
+            guild.channels.cache.get(settings.airdropChannelId);
 
-            const messages = await panelChannel.messages.fetch({
-                limit: 20
-            });
+        await updatePanel(
+            rolePanelChannel,
+            "📊 GrowTTF Manager",
+            createRolePanel(roleSets)
+        );
 
-            const oldPanel = messages.find(
-                m =>
-                    m.author.id === client.user.id &&
-                    m.embeds.length > 0 &&
-                    m.embeds[0].title === "📊 GrowTTF Manager"
-            );
+        await updatePanel(
+            appealPanelChannel,
+            "⛔ Апелляция на снятие Чёрного списка",
+            createAppealPanel()
+        );
+        await updatePanel(
+            airdropPanelChannel,
+            "💰 Выплата за аирдроп",
+            createAirdropPanel()
+        );
 
-            if (oldPanel) {
-
-                await oldPanel.edit(
-                    createRolePanel(roleSets)
-                );
-
-                console.log("✅ Панель ролей обновлена.");
-
-            } else {
-
-                await panelChannel.send(
-                    createRolePanel(roleSets)
-                );
-
-                console.log("✅ Панель ролей создана.");
-
-            }
-
-        }
-
-        // ==========================
-        // Панель апелляций
-        // ==========================
-
-        const appealChannel = guild.channels.cache.get(
-    settings.appealChannelId
-);
-
-const airdropChannel = guild.channels.cache.get(
-    settings.airdropChannelId
-);
-
-        if (appealChannel) {
-
-            const messages = await appealChannel.messages.fetch({
-                limit: 20
-            });
-
-            const oldAppeal = messages.find(
-                m =>
-                    m.author.id === client.user.id &&
-                    m.embeds.length > 0 &&
-                    m.embeds[0].title === "⛔ Апелляция на снятие Чёрного списка"
-            );
-
-            if (oldAppeal) {
-
-                await oldAppeal.edit(
-                    createAppealPanel()
-                );
-
-                console.log("✅ Панель апелляций обновлена.");
-
-            } else {
-
-                await appealChannel.send(
-                    createAppealPanel()
-                );
-
-                console.log("✅ Панель апелляций создана.");
-
-                // ==========================
-                // Панель выплат за аирдроп
-                // ==========================
-
-                const airdropChannel = guild.channels.cache.get("1526900810565550140");
-
-                if (airdropChannel) {
-
-                    const messages = await airdropChannel.messages.fetch({
-                        limit: 20
-                    });
-
-                    const oldPanel = messages.find(
-                        m =>
-                            m.author.id === client.user.id &&
-                            m.embeds.length > 0 &&
-                            m.embeds[0].title === "💰 Выплата за аирдроп"
-                    );
-
-                    if (oldPanel) {
-
-                        await oldPanel.edit(
-                            createAirdropPanel()
-                        );
-
-                        console.log("✅ Панель выплат обновлена.");
-
-                    } else {
-
-                        await appealChannel.send(
-                            createAppealPanel()
-                        );
-
-                        console.log("✅ Панель апелляций создана.");
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        // ==========================
-        // Панель выплат за аирдроп
-        // ==========================
-
-        if (airdropChannel) {
-
-            const messages = await airdropChannel.messages.fetch({
-                limit: 20
-            });
-
-            const oldPanel = messages.find(
-                m =>
-                    m.author.id === client.user.id &&
-                    m.embeds.length > 0 &&
-                    m.embeds[0].title === "💰 Выплата за аирдроп"
-            );
-
-            if (oldPanel) {
-
-                await oldPanel.edit(createAirdropPanel());
-                console.log("✅ Панель выплат обновлена.");
-
-            } else {
-
-            }
-
-        }
+        console.log("=====================================");
+        console.log("✅ Все панели успешно загружены.");
+        console.log("=====================================");
 
     } catch (err) {
 
@@ -219,18 +137,28 @@ const airdropChannel = guild.channels.cache.get(
 
 });
 
-// ==========================
+// =========================
 // Вход бота
-// ==========================
+// =========================
 
 client.login(process.env.TOKEN);
+
+// =========================
+// Web Server (Render)
+// =========================
 
 const app = express();
 
 app.get("/", (req, res) => {
+
     res.send("GrowTTF Manager is online!");
+
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Web server started");
-});
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+
+    console.log(`🌐 Web Server запущен на порту ${PORT}`);
+
+});,
