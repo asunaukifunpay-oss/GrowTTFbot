@@ -63,7 +63,7 @@ client.once(Events.ClientReady, async () => {
 
         const panelChannel = guild.channels.cache.get(
     settings.panelChannelId
-);a
+);
 
         if (panelChannel) {
 
@@ -205,9 +205,6 @@ const airdropChannel = guild.channels.cache.get(
                 console.log("✅ Панель выплат обновлена.");
 
             } else {
-
-                await airdropChannel.send(createAirdropPanel());
-                console.log("✅ Панель выплат создана.");
 
             }
 
