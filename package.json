@@ -1,34 +1,42 @@
 {
   "name": "growttf-manager",
   "version": "1.0.0",
-  "description": "Discord-бот для управления сервером GrowTTF: роли, апелляции, выплаты, чёрный список и журналирование.",
-  "main": "index.js",
-  "type": "commonjs",
+  "description": "Discord-бот для управления сервером GrowTTF",
   "private": true,
+  "type": "commonjs",
+  "main": "index.js",
+  "author": "GrowTTF",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "check": "node --check index.js"
-  },
-  "engines": {
-    "node": ">=20.0.0"
+    "check": "node --check index.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [
     "discord",
-    "discord-bot",
-    "discord-js",
+    "discord.js",
     "growttf",
     "moderation",
+    "roles",
     "blacklist",
-    "role-management"
+    "appeals",
+    "airdrop",
+    "sqlite"
   ],
-  "author": "GrowTTF",
-  "license": "UNLICENSED",
   "dependencies": {
-    "better-sqlite3": "13.0.1",
-    "discord.js": "14.27.0",
-    "dotenv": "17.4.2",
-    "express": "5.2.1",
-    "pino": "10.3.1"
+    "better-sqlite3": "^13.0.1",
+    "discord.js": "^14.27.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pino": "^10.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2"
   }
-}ц
+}
