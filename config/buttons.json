@@ -1,0 +1,49 @@
+{
+  "roles": {
+    "openPanel": "roles:panel:open",
+    "selectPrefix": "roles:select",
+    "removeAll": "roles:remove-all",
+    "refresh": "roles:refresh"
+  },
+  "appeals": {
+    "openModal": "appeals:create:open",
+    "submitModal": "appeals:create:submit",
+    "approvePrefix": "appeals:review:approve",
+    "rejectPrefix": "appeals:review:reject",
+    "closePrefix": "appeals:review:close",
+    "changeNicknamePrefix": "appeals:review:nickname",
+    "changeNicknameModalPrefix": "appeals:nickname:submit"
+  },
+  "airdrops": {
+    "openModal": "airdrops:create:open",
+    "submitModal": "airdrops:create:submit",
+    "payPrefix": "airdrops:review:pay",
+    "rejectPrefix": "airdrops:review:reject"
+  },
+  "pagination": {
+    "firstPrefix": "pagination:first",
+    "previousPrefix": "pagination:previous",
+    "nextPrefix": "pagination:next",
+    "lastPrefix": "pagination:last",
+    "closePrefix": "pagination:close"
+  },
+  "confirmation": {
+    "confirmPrefix": "confirmation:confirm",
+    "cancelPrefix": "confirmation:cancel"
+  },
+  "modalFields": {
+    "appeals": {
+      "nickname": "appeals:field:nickname",
+      "text": "appeals:field:text"
+    },
+    "airdrops": {
+      "nickname": "airdrops:field:nickname",
+      "wallet": "airdrops:field:wallet",
+      "amount": "airdrops:field:amount",
+      "proof": "airdrops:field:proof"
+    },
+    "nickname": {
+      "value": "nickname:field:value"
+    }
+  }
+}
