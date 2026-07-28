@@ -1,8 +1,207 @@
 {
-    "guildId": "1521978164522516550",
-    "panelChannelId": "1526273722603016362",
-    "appealChannelId": "1526408082278715564",
-    "airdropChannelId": "1530187771388629083",
-    "adminRoleId": "1521991372297470054",
-    "embedColor": "#2b2d31"
+  "bot": {
+    "name": "GrowTTF Manager",
+    "prefix": "!",
+    "locale": "ru-RU",
+    "defaultColor": 5793266,
+    "successColor": 5763719,
+    "warningColor": 16705372,
+    "errorColor": 15548997,
+    "infoColor": 5793266
+  },
+  "guild": {
+    "id": "1521978164522516550"
+  },
+  "owners": {
+    "userIds": [
+      "1091031288078667897"
+    ]
+  },
+  "roles": {
+    "blacklistRoleId": "1526393548998705382",
+    "staffRoleIds": [
+      "1521991372297470054",
+      "1521994859408265287",
+      "1521991690456666214",
+      "1526154323472678999"
+    ],
+    "appealManagerRoleIds": [
+      "1521991372297470054",
+      "1521994859408265287",
+      "1521991690456666214",
+      "1526154323472678999"
+    ],
+    "airdropManagerRoleIds": [
+      "1521991372297470054",
+      "1521994859408265287",
+      "1521991690456666214",
+      "1526154323472678999"
+    ],
+    "roleManagerRoleIds": [
+      "1521991372297470054",
+      "1521994859408265287",
+      "1521991690456666214",
+      "1526154323472678999"
+    ],
+    "blacklistManagerRoleIds": [
+      "1521991372297470054",
+      "1521994859408265287",
+      "1521991690456666214",
+      "1526154323472678999"
+    ],
+    "administratorRoleIds": [
+      "1521991372297470054",
+      "1521994859408265287",
+      "1521991690456666214"
+    ],
+    "moderatorRoleIds": [
+      "1526154323472678999"
+    ],
+    "protectedRoleIds": [
+      "1526393548998705382",
+      "1525989297847533608",
+      "1525940579949875221",
+      "1525940322218278933"
+    ],
+    "bulkRoleExcludedIds": [
+      "1526393548998705382",
+      "1525989297847533608",
+      "1525940579949875221",
+      "1525940322218278933"
+    ]
+  },
+  "channels": {
+    "panels": {
+      "rolesChannelId": "1526273722603016362",
+      "appealsChannelId": "1526408082278715564",
+      "airdropsChannelId": "1530187771388629083"
+    },
+    "applications": {
+      "appealsReviewChannelId": "1531678807260397579",
+      "airdropsReviewChannelId": "1531683092983447562"
+    },
+    "logs": {
+      "generalLogChannelId": "1531681203890032681",
+      "commandLogChannelId": "1531681203890032681",
+      "roleLogChannelId": "1531681203890032681",
+      "blacklistLogChannelId": "1531681203890032681",
+      "appealLogChannelId": "1531681203890032681",
+      "airdropLogChannelId": "1531681203890032681",
+      "moderationLogChannelId": "1531681203890032681",
+      "errorLogChannelId": "1531681203890032681",
+      "memberLogChannelId": "1531681203890032681"
+    }
+  },
+  "panels": {
+    "roles": {
+      "enabled": true,
+      "messageId": "",
+      "title": "Панель ролей",
+      "description": "Выберите необходимые роли с помощью элементов управления ниже.",
+      "footer": "GrowTTF Manager • Управление ролями"
+    },
+    "appeals": {
+      "enabled": true,
+      "messageId": "",
+      "title": "Апелляции",
+      "description": "Нажмите кнопку ниже, чтобы отправить апелляцию администрации сервера.",
+      "buttonLabel": "Подать апелляцию",
+      "footer": "GrowTTF Manager • Система апелляций"
+    },
+    "airdrops": {
+      "enabled": true,
+      "messageId": "",
+      "title": "Выплаты за аирдроп",
+      "description": "Нажмите кнопку ниже, чтобы отправить заявку на выплату за аирдроп.",
+      "buttonLabel": "Подать заявку",
+      "footer": "GrowTTF Manager • Выплаты за аирдроп"
+    }
+  },
+  "appeals": {
+    "modal": {
+      "title": "Подача апелляции",
+      "nicknameLabel": "Ваш игровой ник",
+      "nicknamePlaceholder": "Укажите ваш игровой ник",
+      "appealLabel": "Текст апелляции",
+      "appealPlaceholder": "Подробно опишите вашу апелляцию",
+      "nicknameMinLength": 2,
+      "nicknameMaxLength": 32,
+      "appealMinLength": 20,
+      "appealMaxLength": 1000
+    },
+    "allowMultipleOpenAppeals": false,
+    "changeNicknameOnApproval": true,
+    "removeBlacklistOnApproval": true
+  },
+  "airdrops": {
+    "modal": {
+      "title": "Заявка на выплату",
+      "nicknameLabel": "Ваш игровой ник",
+      "nicknamePlaceholder": "Укажите ваш игровой ник",
+      "walletLabel": "Кошелёк или реквизиты",
+      "walletPlaceholder": "Укажите кошелёк или реквизиты для выплаты",
+      "amountLabel": "Сумма выплаты",
+      "amountPlaceholder": "Укажите сумму выплаты",
+      "proofLabel": "Подтверждение участия",
+      "proofPlaceholder": "Укажите ссылку или описание подтверждения",
+      "nicknameMinLength": 2,
+      "nicknameMaxLength": 32,
+      "walletMinLength": 3,
+      "walletMaxLength": 200,
+      "amountMinLength": 1,
+      "amountMaxLength": 50,
+      "proofMinLength": 3,
+      "proofMaxLength": 1000
+    },
+    "allowMultipleOpenRequests": false
+  },
+  "blacklist": {
+    "restoreRoleOnManualRemoval": true,
+    "restoreRoleOnMemberJoin": true,
+    "removeRoleOnlyThroughCommand": true,
+    "roleRestoreDelayMs": 1000
+  },
+  "permissions": {
+    "protectedRoleBypassUserIds": [
+      "1091031288078667897"
+    ],
+    "ownerBypassesAllChecks": true,
+    "allowDiscordAdministrators": false
+  },
+  "commands": {
+    "caseSensitive": false,
+    "deleteCommandMessages": false,
+    "defaultCooldownMs": 3000,
+    "purge": {
+      "minimumAmount": 1,
+      "maximumAmount": 100
+    },
+    "say": {
+      "allowMentions": false,
+      "maximumLength": 2000
+    },
+    "blacklistList": {
+      "itemsPerPage": 10
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "logSuccessfulCommands": true,
+    "logFailedCommands": true,
+    "logRoleChanges": true,
+    "logMemberJoinLeave": true,
+    "logPanelActions": true,
+    "logDatabaseErrors": true
+  },
+  "database": {
+    "filename": "growttf-manager.sqlite",
+    "enableWal": true,
+    "busyTimeoutMs": 5000
+  },
+  "http": {
+    "enabled": true,
+    "host": "0.0.0.0",
+    "defaultPort": 3000,
+    "healthPath": "/health"
+  }
 }
