@@ -1,0 +1,257 @@
+{
+  "owners": {
+    "userIds": [
+      "1091031288078667897"
+    ],
+    "bypassAllChecks": true
+  },
+  "roles": {
+    "founderRoleIds": [
+      "1521991372297470054"
+    ],
+    "deputyRoleIds": [
+      "1521994859408265287"
+    ],
+    "administratorRoleIds": [
+      "1521991690456666214"
+    ],
+    "moderatorRoleIds": [
+      "1526154323472678999"
+    ]
+  },
+  "groups": {
+    "staff": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214",
+        "1526154323472678999"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "seniorStaff": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "management": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "blacklistManagers": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214",
+        "1526154323472678999"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "roleManagers": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214",
+        "1526154323472678999"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "appealManagers": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214",
+        "1526154323472678999"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "airdropManagers": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214",
+        "1526154323472678999"
+      ],
+      "allowDiscordAdministratorPermission": false
+    },
+    "moderationManagers": {
+      "userIds": [],
+      "roleIds": [
+        "1521991372297470054",
+        "1521994859408265287",
+        "1521991690456666214",
+        "1526154323472678999"
+      ],
+      "allowDiscordAdministratorPermission": false
+    }
+  },
+  "commands": {
+    "cs": {
+      "enabled": true,
+      "group": "blacklistManagers",
+      "subcommands": {
+        "add": {
+          "enabled": true,
+          "group": "blacklistManagers"
+        },
+        "remove": {
+          "enabled": true,
+          "group": "blacklistManagers"
+        },
+        "list": {
+          "enabled": true,
+          "group": "blacklistManagers"
+        }
+      }
+    },
+    "role": {
+      "enabled": true,
+      "group": "roleManagers",
+      "subcommands": {
+        "add": {
+          "enabled": true,
+          "group": "roleManagers"
+        },
+        "remove": {
+          "enabled": true,
+          "group": "roleManagers"
+        }
+      }
+    },
+    "roles": {
+      "enabled": true,
+      "group": "roleManagers",
+      "subcommands": {
+        "add": {
+          "enabled": true,
+          "group": "roleManagers"
+        },
+        "remove": {
+          "enabled": true,
+          "group": "roleManagers"
+        }
+      }
+    },
+    "say": {
+      "enabled": true,
+      "group": "seniorStaff"
+    },
+    "purge": {
+      "enabled": true,
+      "group": "moderationManagers"
+    },
+    "userinfo": {
+      "enabled": true,
+      "group": null
+    },
+    "avatar": {
+      "enabled": true,
+      "group": null
+    },
+    "server": {
+      "enabled": true,
+      "group": null
+    },
+    "ping": {
+      "enabled": true,
+      "group": null
+    }
+  },
+  "interactions": {
+    "roles": {
+      "usePanel": {
+        "enabled": true,
+        "group": null
+      }
+    },
+    "appeals": {
+      "create": {
+        "enabled": true,
+        "group": null
+      },
+      "approve": {
+        "enabled": true,
+        "group": "appealManagers"
+      },
+      "reject": {
+        "enabled": true,
+        "group": "appealManagers"
+      },
+      "close": {
+        "enabled": true,
+        "group": "appealManagers"
+      },
+      "changeNickname": {
+        "enabled": true,
+        "group": "appealManagers"
+      }
+    },
+    "airdrops": {
+      "create": {
+        "enabled": true,
+        "group": null
+      },
+      "pay": {
+        "enabled": true,
+        "group": "airdropManagers"
+      },
+      "reject": {
+        "enabled": true,
+        "group": "airdropManagers"
+      }
+    }
+  },
+  "protectedRoles": {
+    "roleIds": [
+      "1526393548998705382",
+      "1525989297847533608",
+      "1525940579949875221",
+      "1525940322218278933"
+    ],
+    "bypassUserIds": [
+      "1091031288078667897"
+    ],
+    "bypassRoleIds": [],
+    "denyManualCommands": true,
+    "denyBulkCommands": true,
+    "denyRolePanel": true,
+    "logDeniedAttempts": true
+  },
+  "blacklistRole": {
+    "roleId": "1526393548998705382",
+    "manageGroup": "blacklistManagers",
+    "removeOnlyThroughCommand": true,
+    "restoreAfterManualRemoval": true,
+    "restoreOnMemberJoin": true,
+    "bypassUserIds": [
+      "1091031288078667897"
+    ]
+  },
+  "hierarchy": {
+    "enforceDiscordRoleHierarchy": true,
+    "denyTargetingOwners": true,
+    "denyTargetingEqualOrHigherStaff": true,
+    "ownerCanTargetAnyone": true,
+    "compareHighestRoles": true
+  },
+  "defaults": {
+    "allowDiscordAdministratorPermission": false,
+    "denyWhenGroupMissing": true,
+    "denyWhenMemberUnavailable": true,
+    "denyBotsAsTargets": false,
+    "logDeniedAttempts": true
+  }
+}w
