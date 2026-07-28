@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "panel": {
+    "placeholder": "Выберите роли",
+    "minimumValues": 0,
+    "showCurrentRolesAsSelected": true,
+    "removeDeselectedRoles": true
+  },
+  "sets": [
+    {
+      "id": "verified",
+      "label": "Проверен",
+      "placeholder": "Выберите роли",
+      "roles": [
+        "1522132833039290448",
+        "1526161415390367897",
+        "1526170430828843018",
+        "1526176205173428275"
+      ]
+    }
+  ]
+}w
