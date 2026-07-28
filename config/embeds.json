@@ -1,0 +1,569 @@
+{
+  "branding": {
+    "name": "GrowTTF Manager",
+    "footerText": "GrowTTF Manager",
+    "iconUrl": "",
+    "thumbnailUrl": ""
+  },
+  "colors": {
+    "primary": 5793266,
+    "success": 5763719,
+    "warning": 16705372,
+    "error": 15548997,
+    "info": 5793266,
+    "neutral": 9807270,
+    "blacklist": 10038562,
+    "appeal": 10181046,
+    "airdrop": 15844367
+  },
+  "common": {
+    "noPermission": {
+      "title": "Недостаточно прав",
+      "description": "У вас нет прав для выполнения этого действия.",
+      "color": "error"
+    },
+    "commandDisabled": {
+      "title": "Команда отключена",
+      "description": "Эта команда временно отключена в конфигурации бота.",
+      "color": "warning"
+    },
+    "interactionDisabled": {
+      "title": "Действие недоступно",
+      "description": "Это действие временно отключено в конфигурации бота.",
+      "color": "warning"
+    },
+    "guildOnly": {
+      "title": "Недоступно в личных сообщениях",
+      "description": "Эту команду можно использовать только на сервере.",
+      "color": "error"
+    },
+    "wrongGuild": {
+      "title": "Неверный сервер",
+      "description": "GrowTTF Manager настроен для работы на другом сервере.",
+      "color": "error"
+    },
+    "memberUnavailable": {
+      "title": "Участник недоступен",
+      "description": "Не удалось получить данные участника сервера.",
+      "color": "error"
+    },
+    "targetNotFound": {
+      "title": "Пользователь не найден",
+      "description": "Не удалось найти указанного пользователя на сервере.",
+      "color": "error"
+    },
+    "roleNotFound": {
+      "title": "Роль не найдена",
+      "description": "Не удалось найти указанную роль на сервере.",
+      "color": "error"
+    },
+    "channelNotFound": {
+      "title": "Канал не найден",
+      "description": "Не удалось найти настроенный канал. Проверьте config/settings.json.",
+      "color": "error"
+    },
+    "invalidArguments": {
+      "title": "Неверные аргументы",
+      "description": "Проверьте правильность использования команды.",
+      "color": "error"
+    },
+    "cooldown": {
+      "title": "Слишком часто",
+      "description": "Подождите {seconds} сек. перед повторным использованием команды.",
+      "color": "warning"
+    },
+    "unexpectedError": {
+      "title": "Произошла ошибка",
+      "description": "Во время выполнения действия произошла непредвиденная ошибка. Администрация уже получила запись в журнале.",
+      "color": "error"
+    },
+    "databaseError": {
+      "title": "Ошибка базы данных",
+      "description": "Не удалось выполнить операцию с базой данных. Попробуйте позже.",
+      "color": "error"
+    },
+    "processing": {
+      "title": "Обработка",
+      "description": "Ваш запрос обрабатывается.",
+      "color": "info"
+    },
+    "success": {
+      "title": "Готово",
+      "description": "Действие успешно выполнено.",
+      "color": "success"
+    }
+  },
+  "panels": {
+    "roles": {
+      "title": "Панель ролей",
+      "description": "Выберите нужные роли в меню ниже.\n\nПри повторном выборе уже имеющейся роли она будет снята.",
+      "color": "primary",
+      "footer": "GrowTTF Manager • Управление ролями"
+    },
+    "appeals": {
+      "title": "Апелляции",
+      "description": "Нажмите кнопку ниже, чтобы отправить апелляцию администрации сервера.\n\nПеред отправкой убедитесь, что вы подробно описали ситуацию.",
+      "color": "appeal",
+      "footer": "GrowTTF Manager • Система апелляций"
+    },
+    "airdrops": {
+      "title": "Выплаты за аирдроп",
+      "description": "Нажмите кнопку ниже, чтобы отправить заявку на выплату.\n\nУкажите корректные реквизиты и подтверждение участия.",
+      "color": "airdrop",
+      "footer": "GrowTTF Manager • Выплаты"
+    }
+  },
+  "roles": {
+    "added": {
+      "title": "Роль выдана",
+      "description": "Роль {role} успешно выдана пользователю {user}.",
+      "color": "success"
+    },
+    "removed": {
+      "title": "Роль снята",
+      "description": "Роль {role} успешно снята с пользователя {user}.",
+      "color": "success"
+    },
+    "selfAdded": {
+      "title": "Роль добавлена",
+      "description": "Вам выдана роль {role}.",
+      "color": "success"
+    },
+    "selfRemoved": {
+      "title": "Роль снята",
+      "description": "С вас снята роль {role}.",
+      "color": "success"
+    },
+    "alreadyHasRole": {
+      "title": "Роль уже выдана",
+      "description": "Пользователь {user} уже имеет роль {role}.",
+      "color": "warning"
+    },
+    "doesNotHaveRole": {
+      "title": "Роль отсутствует",
+      "description": "У пользователя {user} нет роли {role}.",
+      "color": "warning"
+    },
+    "protectedRole": {
+      "title": "Защищённая роль",
+      "description": "Роль {role} защищена и не может быть выдана или снята этим пользователем.",
+      "color": "error"
+    },
+    "managedRole": {
+      "title": "Системная роль",
+      "description": "Роль {role} управляется Discord или интеграцией и не может быть изменена ботом.",
+      "color": "error"
+    },
+    "hierarchyError": {
+      "title": "Недостаточно прав бота",
+      "description": "Бот не может управлять ролью {role}, потому что она находится выше или на одном уровне с его самой высокой ролью.",
+      "color": "error"
+    },
+    "targetHierarchyError": {
+      "title": "Недоступный пользователь",
+      "description": "Вы не можете управлять ролями пользователя {user} из-за иерархии ролей.",
+      "color": "error"
+    },
+    "bulkAdded": {
+      "title": "Массовая выдача ролей завершена",
+      "description": "Пользователю {user} выдано ролей: **{addedCount}**.\nПропущено ролей: **{skippedCount}**.\nОшибок: **{failedCount}**.",
+      "color": "success"
+    },
+    "bulkRemoved": {
+      "title": "Массовое снятие ролей завершено",
+      "description": "С пользователя {user} снято ролей: **{removedCount}**.\nПропущено ролей: **{skippedCount}**.\nОшибок: **{failedCount}**.",
+      "color": "success"
+    },
+    "bulkNoChanges": {
+      "title": "Изменения не требуются",
+      "description": "Для пользователя {user} не найдено ролей, доступных для изменения.",
+      "color": "warning"
+    },
+    "panelUpdated": {
+      "title": "Роли обновлены",
+      "description": "Изменения ролей успешно применены.",
+      "color": "success"
+    },
+    "panelPartialFailure": {
+      "title": "Роли обновлены частично",
+      "description": "Часть ролей не удалось изменить. Подробности отправлены в журнал.",
+      "color": "warning"
+    }
+  },
+  "blacklist": {
+    "added": {
+      "title": "Пользователь добавлен в ЧС",
+      "description": "Пользователь {user} добавлен в чёрный список.",
+      "color": "blacklist"
+    },
+    "removed": {
+      "title": "Пользователь удалён из ЧС",
+      "description": "Пользователь {user} удалён из чёрного списка.",
+      "color": "success"
+    },
+    "alreadyListed": {
+      "title": "Пользователь уже в ЧС",
+      "description": "Пользователь {user} уже находится в чёрном списке.",
+      "color": "warning"
+    },
+    "notListed": {
+      "title": "Пользователь не находится в ЧС",
+      "description": "Пользователь {user} отсутствует в чёрном списке.",
+      "color": "warning"
+    },
+    "roleRestored": {
+      "title": "Роль ЧС восстановлена",
+      "description": "Роль ЧС была автоматически возвращена пользователю {user}.",
+      "color": "blacklist"
+    },
+    "roleRestoreFailed": {
+      "title": "Не удалось восстановить роль ЧС",
+      "description": "Бот не смог вернуть роль ЧС пользователю {user}. Проверьте права и иерархию ролей.",
+      "color": "error"
+    },
+    "joinRestored": {
+      "title": "Роль ЧС возвращена при входе",
+      "description": "Пользователь {user} находится в базе ЧС. Роль была автоматически возвращена после входа на сервер.",
+      "color": "blacklist"
+    },
+    "manualRemovalBlocked": {
+      "title": "Снятие роли ЧС отменено",
+      "description": "Роль ЧС нельзя снимать вручную. Используйте команду `!cs remove`.",
+      "color": "error"
+    },
+    "listTitle": "Чёрный список",
+    "listDescription": "Всего записей: **{totalCount}**.",
+    "listEmpty": {
+      "title": "Чёрный список пуст",
+      "description": "В базе данных нет пользователей, находящихся в ЧС.",
+      "color": "info"
+    },
+    "listEntry": {
+      "name": "{position}. {displayName}",
+      "value": "Пользователь: {userMention}\nID: `{userId}`\nДобавил: {addedByMention}\nДата: {addedAt}"
+    }
+  },
+  "appeals": {
+    "submitted": {
+      "title": "Апелляция отправлена",
+      "description": "Ваша апелляция успешно отправлена администрации.\nНомер заявки: **#{appealId}**.",
+      "color": "success"
+    },
+    "alreadyOpen": {
+      "title": "Апелляция уже существует",
+      "description": "У вас уже есть открытая апелляция №{appealId}. Дождитесь решения администрации.",
+      "color": "warning"
+    },
+    "reviewTitle": "Новая апелляция #{appealId}",
+    "reviewDescription": "Поступила новая апелляция от пользователя {user}.",
+    "reviewFields": {
+      "user": "Пользователь",
+      "userId": "ID пользователя",
+      "nickname": "Игровой ник",
+      "text": "Текст апелляции",
+      "status": "Статус",
+      "createdAt": "Дата создания",
+      "processedBy": "Обработал",
+      "processedAt": "Дата обработки"
+    },
+    "statuses": {
+      "pending": "На рассмотрении",
+      "approved": "Одобрена",
+      "rejected": "Отклонена",
+      "closed": "Закрыта"
+    },
+    "approved": {
+      "title": "Апелляция одобрена",
+      "description": "Апелляция №{appealId} одобрена администратором {moderator}.",
+      "color": "success"
+    },
+    "rejected": {
+      "title": "Апелляция отклонена",
+      "description": "Апелляция №{appealId} отклонена администратором {moderator}.",
+      "color": "error"
+    },
+    "closed": {
+      "title": "Апелляция закрыта",
+      "description": "Апелляция №{appealId} закрыта администратором {moderator}.",
+      "color": "neutral"
+    },
+    "alreadyProcessed": {
+      "title": "Апелляция уже обработана",
+      "description": "Апелляция №{appealId} уже имеет статус «{status}».",
+      "color": "warning"
+    },
+    "notFound": {
+      "title": "Апелляция не найдена",
+      "description": "Запись апелляции №{appealId} не найдена в базе данных.",
+      "color": "error"
+    },
+    "nicknameChanged": {
+      "title": "Ник изменён",
+      "description": "Ник пользователя {user} изменён на **{nickname}**.",
+      "color": "success"
+    },
+    "nicknameChangeFailed": {
+      "title": "Не удалось изменить ник",
+      "description": "Бот не смог изменить ник пользователя {user}. Проверьте права и иерархию ролей.",
+      "color": "error"
+    },
+    "directMessages": {
+      "approved": {
+        "title": "Ваша апелляция одобрена",
+        "description": "Апелляция №{appealId} была одобрена администрацией сервера.",
+        "color": "success"
+      },
+      "rejected": {
+        "title": "Ваша апелляция отклонена",
+        "description": "Апелляция №{appealId} была отклонена администрацией сервера.",
+        "color": "error"
+      },
+      "closed": {
+        "title": "Ваша апелляция закрыта",
+        "description": "Апелляция №{appealId} была закрыта администрацией сервера.",
+        "color": "neutral"
+      }
+    }
+  },
+  "airdrops": {
+    "submitted": {
+      "title": "Заявка отправлена",
+      "description": "Ваша заявка на выплату успешно отправлена администрации.\nНомер заявки: **#{airdropId}**.",
+      "color": "success"
+    },
+    "alreadyOpen": {
+      "title": "Заявка уже существует",
+      "description": "У вас уже есть открытая заявка №{airdropId}. Дождитесь решения администрации.",
+      "color": "warning"
+    },
+    "reviewTitle": "Новая заявка на выплату #{airdropId}",
+    "reviewDescription": "Поступила новая заявка на выплату от пользователя {user}.",
+    "reviewFields": {
+      "user": "Пользователь",
+      "userId": "ID пользователя",
+      "nickname": "Игровой ник",
+      "wallet": "Кошелёк или реквизиты",
+      "amount": "Сумма",
+      "proof": "Подтверждение участия",
+      "status": "Статус",
+      "createdAt": "Дата создания",
+      "processedBy": "Обработал",
+      "processedAt": "Дата обработки"
+    },
+    "statuses": {
+      "pending": "Ожидает обработки",
+      "paid": "Выплачено",
+      "rejected": "Отказано"
+    },
+    "paid": {
+      "title": "Выплата подтверждена",
+      "description": "Заявка №{airdropId} отмечена как выплаченная администратором {moderator}.",
+      "color": "success"
+    },
+    "rejected": {
+      "title": "В выплате отказано",
+      "description": "Заявка №{airdropId} отклонена администратором {moderator}.",
+      "color": "error"
+    },
+    "alreadyProcessed": {
+      "title": "Заявка уже обработана",
+      "description": "Заявка №{airdropId} уже имеет статус «{status}».",
+      "color": "warning"
+    },
+    "notFound": {
+      "title": "Заявка не найдена",
+      "description": "Запись заявки №{airdropId} не найдена в базе данных.",
+      "color": "error"
+    },
+    "directMessages": {
+      "paid": {
+        "title": "Выплата выполнена",
+        "description": "Ваша заявка №{airdropId} отмечена администрацией как выплаченная.",
+        "color": "success"
+      },
+      "rejected": {
+        "title": "В выплате отказано",
+        "description": "Ваша заявка №{airdropId} была отклонена администрацией.",
+        "color": "error"
+      }
+    }
+  },
+  "commands": {
+    "say": {
+      "sent": {
+        "title": "Сообщение отправлено",
+        "description": "Сообщение успешно отправлено в канал {channel}.",
+        "color": "success"
+      },
+      "empty": {
+        "title": "Пустое сообщение",
+        "description": "Укажите текст, который должен отправить бот.",
+        "color": "error"
+      },
+      "tooLong": {
+        "title": "Сообщение слишком длинное",
+        "description": "Длина сообщения не должна превышать {maxLength} символов.",
+        "color": "error"
+      }
+    },
+    "purge": {
+      "completed": {
+        "title": "Очистка завершена",
+        "description": "Удалено сообщений: **{deletedCount}**.",
+        "color": "success"
+      },
+      "invalidAmount": {
+        "title": "Неверное количество",
+        "description": "Количество сообщений должно быть от {minimum} до {maximum}.",
+        "color": "error"
+      },
+      "nothingDeleted": {
+        "title": "Нет доступных сообщений",
+        "description": "Не найдено сообщений, которые можно удалить.",
+        "color": "warning"
+      },
+      "oldMessagesSkipped": {
+        "title": "Очистка выполнена частично",
+        "description": "Удалено сообщений: **{deletedCount}**.\nЧасть сообщений старше 14 дней была пропущена.",
+        "color": "warning"
+      }
+    },
+    "ping": {
+      "title": "Проверка соединения",
+      "description": "Задержка сообщения: **{messageLatency} мс**\nЗадержка Discord API: **{websocketLatency} мс**\nВремя работы: **{uptime}**",
+      "color": "info"
+    },
+    "avatar": {
+      "title": "Аватар пользователя {displayName}",
+      "description": "[Открыть оригинал]({avatarUrl})",
+      "color": "info"
+    },
+    "userinfo": {
+      "title": "Информация о пользователе",
+      "description": "Данные участника {user}.",
+      "color": "info",
+      "fields": {
+        "user": "Пользователь",
+        "userId": "ID",
+        "bot": "Бот",
+        "createdAt": "Аккаунт создан",
+        "joinedAt": "Присоединился",
+        "nickname": "Ник на сервере",
+        "highestRole": "Высшая роль",
+        "roles": "Роли",
+        "blacklisted": "Находится в ЧС"
+      }
+    },
+    "server": {
+      "title": "Информация о сервере",
+      "description": "Данные сервера **{guildName}**.",
+      "color": "info",
+      "fields": {
+        "guildId": "ID сервера",
+        "owner": "Владелец",
+        "createdAt": "Дата создания",
+        "members": "Участники",
+        "humans": "Пользователи",
+        "bots": "Боты",
+        "roles": "Роли",
+        "channels": "Каналы",
+        "boosts": "Бусты",
+        "boostLevel": "Уровень буста"
+      }
+    }
+  },
+  "logs": {
+    "command": {
+      "title": "Использована команда",
+      "color": "info",
+      "fields": {
+        "command": "Команда",
+        "author": "Исполнитель",
+        "channel": "Канал",
+        "arguments": "Аргументы",
+        "result": "Результат"
+      }
+    },
+    "roleAdded": {
+      "title": "Роль выдана",
+      "color": "success",
+      "fields": {
+        "target": "Пользователь",
+        "role": "Роль",
+        "executor": "Исполнитель",
+        "source": "Источник"
+      }
+    },
+    "roleRemoved": {
+      "title": "Роль снята",
+      "color": "warning",
+      "fields": {
+        "target": "Пользователь",
+        "role": "Роль",
+        "executor": "Исполнитель",
+        "source": "Источник"
+      }
+    },
+    "blacklistAdded": {
+      "title": "Добавление в ЧС",
+      "color": "blacklist",
+      "fields": {
+        "target": "Пользователь",
+        "executor": "Исполнитель",
+        "roleApplied": "Роль выдана"
+      }
+    },
+    "blacklistRemoved": {
+      "title": "Удаление из ЧС",
+      "color": "success",
+      "fields": {
+        "target": "Пользователь",
+        "executor": "Исполнитель",
+        "roleRemoved": "Роль снята"
+      }
+    },
+    "appealCreated": {
+      "title": "Создана апелляция",
+      "color": "appeal"
+    },
+    "appealProcessed": {
+      "title": "Апелляция обработана",
+      "color": "appeal"
+    },
+    "airdropCreated": {
+      "title": "Создана заявка на выплату",
+      "color": "airdrop"
+    },
+    "airdropProcessed": {
+      "title": "Заявка на выплату обработана",
+      "color": "airdrop"
+    },
+    "memberJoined": {
+      "title": "Участник вошёл на сервер",
+      "color": "success"
+    },
+    "memberLeft": {
+      "title": "Участник покинул сервер",
+      "color": "warning"
+    },
+    "error": {
+      "title": "Ошибка GrowTTF Manager",
+      "color": "error",
+      "fields": {
+        "context": "Контекст",
+        "message": "Сообщение",
+        "stack": "Стек вызовов"
+      }
+    },
+    "permissionDenied": {
+      "title": "Отказ в доступе",
+      "color": "error",
+      "fields": {
+        "user": "Пользователь",
+        "action": "Действие",
+        "reason": "Причина",
+        "channel": "Канал"
+      }
+    }
+  }
+    }
